@@ -1,6 +1,8 @@
 [submodule "turno_web"]
 	path = turnos_web
 	url = git@github.com:MaelGarcia/turnos_web.git
+	branch = main
 [submodule "turnos_back"]
 	path = turnos_back
 	url = git@github.com:MaelGarcia/turnos_back.git
+	branch = main
