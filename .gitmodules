@@ -1,6 +1,6 @@
 [submodule "turno_web"]
 	path = turnos_web
 	url = git@github.com:MaelGarcia/turnos_web.git
-[submodule "turnos_backend"]
-	path = turnos_backend
-	url = git@github.com:MaelGarcia/turnos_backend.git
+[submodule "turnos_back"]
+	path = turnos_back
+	url = git@github.com:MaelGarcia/turnos_back.git
