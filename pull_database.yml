@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  data:
+    image: postgres14.6:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: syst3msd4t4b4s32026
+      POSTGRES_DATABASE: servicio_turno
+    volumes:
+      - isis_data:/var/lib/postgresql/data/
+    networks:
+      - turnos_net
+    ports:
+      - 2345:5432
+
+networks:
+  turnos_net:
+    external: true
+
+volumes:
+  turnos_data:
+    external: true
