@@ -23,7 +23,7 @@ services:
       - 3008:3008
       - 3009:3009
     networks:
-      - isis_net
+      - turnos_net
     logging:
       driver: local
       options:
