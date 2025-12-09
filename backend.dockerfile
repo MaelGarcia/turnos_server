@@ -1,41 +1,18 @@
-# Image size ~ 400MB
-FROM node:21-alpine3.18 as builder
+FROM node:21-alpine3.18
 
-WORKDIR /app
+WORKDIR /usr/src/
 
-RUN corepack enable && corepack prepare pnpm@latest --activate
-ENV PNPM_HOME=/usr/local/bin
+COPY turnos_back/package*.json ./
 
-COPY . .
+RUN npm install
 
-COPY package*.json *-lock.yaml ./
+COPY turnos_back/ ./
 
-RUN apk add --no-cache --virtual .gyp \
-        python3 \
-        make \
-        g++ \
-    && apk add --no-cache git \
-    && pnpm install && pnpm run build \
-    && apk del .gyp
+RUN apk add tzdata
 
-FROM node:21-alpine3.18 as deploy
+RUN cp /usr/share/zoneinfo/America/Mexico_City /etc/localtime
 
-WORKDIR /app
-
-ARG PORT
-ENV PORT $PORT
-EXPOSE $PORT
-
-COPY --from=builder /app/assets ./assets
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/*.json /app/*-lock.yaml ./
-
-RUN corepack enable && corepack prepare pnpm@latest --activate 
-ENV PNPM_HOME=/usr/local/bin
-
-RUN npm cache clean --force && pnpm install --production --ignore-scripts \
-    && addgroup -g 1001 -S nodejs && adduser -S -u 1001 nodejs \
-    && rm -rf $PNPM_HOME/.npm $PNPM_HOME/.node-gyp
+RUN echo "Mexico_City" >  /etc/timezone
 
 EXPOSE 3008 3009
 
