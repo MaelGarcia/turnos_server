@@ -8,7 +8,7 @@ services:
       POSTGRES_PASSWORD: syst3msd4t4b4s32026
       POSTGRES_DATABASE: servicio_turno
     volumes:
-      - isis_data:/var/lib/postgresql/data/
+      - turnos_data:/var/lib/postgresql/data/
     networks:
       - turnos_net
     ports:
