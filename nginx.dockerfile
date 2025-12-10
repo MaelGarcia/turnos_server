@@ -11,7 +11,7 @@ COPY turnos_web/package*.json ./
 RUN npm install
 
 # Copia el resto del proyecto Angular
-COPY turnos_web/ .
+COPY turnos-web/ .
 
 # Construye la app Angular en modo producción
 RUN npm run build -- --configuration production
@@ -30,7 +30,7 @@ COPY files/nginx/nginx.conf /etc/nginx/nginx.conf
 # COPY files/certificate/192.168.1.200-key.pem /etc/nginx/ssl/privkey.pem
 
 # Copia el build de Angular al contenedor nginx
-COPY --from=build-stage /app/dist/turnos_web /usr/share/nginx/html
+COPY --from=build-stage /app/dist/turnos-web /usr/share/nginx/html
 
 EXPOSE 80 443
 

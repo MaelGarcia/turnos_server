@@ -56,7 +56,7 @@ while [ $opc -ne 9 ]; do
             echo "Compilación de Frontend correcta"
             ;;
         6)
-            docker stack deploy -c turnos.yml turnos
+            docker stack deploy -c pull_turnos.yml turnos
             echo "Despliegue realizado con éxito"
             ;;
         7)
