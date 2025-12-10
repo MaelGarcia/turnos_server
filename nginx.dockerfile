@@ -1,5 +1,5 @@
 # Etapa 1: Compilación Angular
-FROM node:22.12-alpine as build-stage
+FROM node:22.12-alpine AS build-stage
 
 # Instala herramientas necesarias y crea directorio de trabajo
 WORKDIR /app
