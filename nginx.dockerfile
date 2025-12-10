@@ -30,7 +30,7 @@ COPY files/nginx/nginx.conf /etc/nginx/nginx.conf
 # COPY files/certificate/192.168.1.200-key.pem /etc/nginx/ssl/privkey.pem
 
 # Copia el build de Angular al contenedor nginx
-COPY --from=build-stage /app/dist/turnos-web/browser/ /usr/share/nginx/html/;
+COPY --from=build-stage /app/dist/turnos-web/browser/ /usr/share/nginx/html;
 
 EXPOSE 80 443
 
