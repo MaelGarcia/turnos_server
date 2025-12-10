@@ -11,7 +11,7 @@ COPY turnos_web/package*.json ./
 RUN npm install
 
 # Copia el resto del proyecto Angular
-COPY turnos-web/ .
+COPY turnos_web/ .
 
 # Construye la app Angular en modo producción
 RUN npm run build -- --configuration production
