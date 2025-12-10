@@ -16,4 +16,4 @@ RUN echo "Mexico_City" >  /etc/timezone
 
 EXPOSE 3008 3009
 
-CMD ["npm","start"]
+CMD ["npm","run","dev"]
